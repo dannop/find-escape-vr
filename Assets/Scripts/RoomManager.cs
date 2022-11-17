@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
     private string mapType;
+
+    public TextMeshProUGUI OccupancyRateText_ForSchool;
+    public TextMeshProUGUI OccupancyRateText_ForOutdoor;
 
     private void Start()
     {
@@ -22,6 +26,19 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void OnEnterMainHall()
+    {
+        mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_HALL;
+        ExitGames.Client.Photon.Hashtable expectedCustomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
+        PhotonNetwork.JoinRandomRoom(expectedCustomProperties, 0);
+    }
+
     #region UI Callback Methods
     public void JoinRandomRoom()
     {
@@ -30,14 +47,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void OnEnterButtonClickedOutdoor()
     {
-        mapType = MutiplayerVRConstants.MAP_TYPE_VALUE_OUTDOOR;
-        ExitGames.Client.Photon.Hashtable expectedCustomProperties = new ExitGames.Client.Photon.Hashtable() { { MutiplayerVRConstants.MAP_TYPE_KEY, mapType } };
+        mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_OUTDOOR;
+        ExitGames.Client.Photon.Hashtable expectedCustomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
         PhotonNetwork.JoinRandomRoom(expectedCustomProperties, 0);
     }
     public void OnEnterButtonClickedSchool()
     {
-        mapType = MutiplayerVRConstants.MAP_TYPE_VALUE_SCHOOL;
-        ExitGames.Client.Photon.Hashtable expectedCustomProperties = new ExitGames.Client.Photon.Hashtable() { { MutiplayerVRConstants.MAP_TYPE_KEY, mapType } };
+        mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_SCHOOL;
+        ExitGames.Client.Photon.Hashtable expectedCustomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
         PhotonNetwork.JoinRandomRoom(expectedCustomProperties, 0);
     }
     #endregion
@@ -45,12 +62,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
     #region Photon Callback Methods 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
+        Debug.Log("Connect Failed. " + message);
         CreateAndJoinRoom();
     }
 
     public override void OnConnectedToMaster()
     {
-        Debug.Log("Connected ti servers again.");
+        Debug.Log("Connected to servers again.");
         PhotonNetwork.JoinLobby();
     }
 
@@ -61,19 +79,25 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("You joined in room");
+        Debug.Log("The Local player: " + PhotonNetwork.NickName + " joined to " + PhotonNetwork.CurrentRoom.Name + " Player count " + PhotonNetwork.CurrentRoom.PlayerCount);
 
-        if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey(MutiplayerVRConstants.MAP_TYPE_KEY))
+        if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey(MultiplayerVRConstants.MAP_TYPE_KEY))
         {
             object mapType;
-            if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue(MutiplayerVRConstants.MAP_TYPE_KEY, out mapType))
+            if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue(MultiplayerVRConstants.MAP_TYPE_KEY, out mapType))
             {
-                if ((string)mapType == MutiplayerVRConstants.MAP_TYPE_VALUE_SCHOOL)
+                Debug.Log("Joined room with the map: " + (string)mapType);
+                if ((string)mapType == MultiplayerVRConstants.MAP_TYPE_VALUE_SCHOOL)
                 {
                     PhotonNetwork.LoadLevel("World_School");
-                }else if ((string)mapType == MutiplayerVRConstants.MAP_TYPE_VALUE_OUTDOOR)
+                }
+                else if ((string)mapType == MultiplayerVRConstants.MAP_TYPE_VALUE_OUTDOOR)
                 {
                     PhotonNetwork.LoadLevel("World_Outdoor");
+                }
+                else if ((string)mapType == MultiplayerVRConstants.MAP_TYPE_VALUE_HALL)
+                {
+                    PhotonNetwork.LoadLevel("HallScene");
                 }
             }
         }
@@ -88,13 +112,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
     #region Private Methods
     private void CreateAndJoinRoom()
     {
-        string randomRoomName = "Room_" + Random.Range(0, 1000);
+        string randomRoomName = "Room_" + mapType + Random.Range(0, 10000);
         RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 10;
+        roomOptions.MaxPlayers = 20;
 
-        string[] roomPropsInLobby = { MutiplayerVRConstants.MAP_TYPE_KEY };
+        string[] roomPropsInLobby = { MultiplayerVRConstants.MAP_TYPE_KEY };
 
-        ExitGames.Client.Photon.Hashtable customRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MutiplayerVRConstants.MAP_TYPE_KEY, mapType } };
+        ExitGames.Client.Photon.Hashtable customRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
 
         roomOptions.CustomRoomPropertiesForLobby = roomPropsInLobby;
         roomOptions.CustomRoomProperties = customRoomProperties;

@@ -20,7 +20,7 @@ public class UI_InteractionController : MonoBehaviour
     bool isUICanvasActive = false;
 
     [SerializeField]
-    GameObject UICanvasGameobject;
+    GameObject UIGameObjects;
 
   
     private void OnEnable()
@@ -36,9 +36,9 @@ public class UI_InteractionController : MonoBehaviour
     private void Start()
     {
         //Deactivating UI Canvas Gameobject by default
-        if (UICanvasGameobject !=null)
+        if (UIGameObjects != null)
         {
-            UICanvasGameobject.SetActive(false);
+            UIGameObjects.SetActive(false);
 
         }
 
@@ -65,10 +65,10 @@ public class UI_InteractionController : MonoBehaviour
             //Deactivating Base Controller by disabling its XR Direct Interactor
             BaseController.GetComponent<XRDirectInteractor>().enabled = false;
 
-          
+
 
             //Activating the UI Canvas Gameobject
-            UICanvasGameobject.SetActive(true);
+            UIGameObjects.SetActive(true);
         }
         else
         {
@@ -82,7 +82,7 @@ public class UI_InteractionController : MonoBehaviour
             BaseController.GetComponent<XRDirectInteractor>().enabled = true;
 
             //De-Activating the UI Canvas Gameobject
-            UICanvasGameobject.SetActive(false);
+            UIGameObjects.SetActive(false);
         }
 
     }

@@ -23,9 +23,11 @@ public class VirtualWorldManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveRoom();
     }
 
+    #region Photon Callback Methods
+
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        
+        Debug.Log(newPlayer.NickName + " joined to: " + "Player count: " + PhotonNetwork.CurrentRoom.PlayerCount);
     }
 
     public override void OnLeftRoom()
@@ -37,4 +39,6 @@ public class VirtualWorldManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel("HomeScene");
     }
+
+    #endregion
 }
