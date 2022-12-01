@@ -2500,7 +2500,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2876,6 +2876,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817241657594634579, guid: ced222a7b2154ba44a686c0240b521c0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817241657594634579, guid: ced222a7b2154ba44a686c0240b521c0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ced222a7b2154ba44a686c0240b521c0, type: 3}
 --- !u!114 &5726267486106689790 stripped
@@ -2936,9 +2944,17 @@ PrefabInstance:
       propertyPath: m_text
       value: Conectado
       objectReference: {fileID: 0}
+    - target: {fileID: 4397939939757153493, guid: 5ffc43ff8dc92b145ae90995cfe4c70a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397939939757153493, guid: 5ffc43ff8dc92b145ae90995cfe4c70a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5373286181792202094, guid: 5ffc43ff8dc92b145ae90995cfe4c70a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8150605121997057295, guid: 5ffc43ff8dc92b145ae90995cfe4c70a, type: 3}
       propertyPath: m_Pivot.x

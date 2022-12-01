@@ -15,7 +15,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
-
         if (!PhotonNetwork.IsConnectedAndReady)
         {
             PhotonNetwork.ConnectUsingSettings();
@@ -26,40 +25,31 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GoToNewRoom()
     {
-
-    }
-
-    public void OnEnterMainHall()
-    {
-        mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_HALL;
         ExitGames.Client.Photon.Hashtable expectedCustomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
         PhotonNetwork.JoinRandomRoom(expectedCustomProperties, 0);
     }
 
-    #region UI Callback Methods
-    public void JoinRandomRoom()
+    public void OnEnterHall()
     {
-        PhotonNetwork.JoinRandomRoom();
+        mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_HALL;
+        GoToNewRoom();
     }
 
     public void OnEnterButtonClickedOutdoor()
     {
         mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_OUTDOOR;
-        ExitGames.Client.Photon.Hashtable expectedCustomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
-        PhotonNetwork.JoinRandomRoom(expectedCustomProperties, 0);
+        GoToNewRoom();
     }
     public void OnEnterButtonClickedSchool()
     {
         mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_SCHOOL;
-        ExitGames.Client.Photon.Hashtable expectedCustomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
-        PhotonNetwork.JoinRandomRoom(expectedCustomProperties, 0);
+        GoToNewRoom();
     }
-    #endregion
 
     #region Photon Callback Methods 
+
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log("Connect Failed. " + message);
@@ -95,7 +85,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
                 {
                     PhotonNetwork.LoadLevel("World_Outdoor");
                 }
-                else if ((string)mapType == MultiplayerVRConstants.MAP_TYPE_VALUE_HALL)
+                else if((string)mapType == MultiplayerVRConstants.MAP_TYPE_VALUE_HALL)
                 {
                     PhotonNetwork.LoadLevel("HallScene");
                 }

@@ -1005,7 +1005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4259889453996848700, guid: 7ebb08698aa3a2f458b7c07dff2265d3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.04
+      value: 3.68
       objectReference: {fileID: 0}
     - target: {fileID: 4259889453996848700, guid: 7ebb08698aa3a2f458b7c07dff2265d3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1025,11 +1025,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4259889453996848700, guid: 7ebb08698aa3a2f458b7c07dff2265d3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -0.015
       objectReference: {fileID: 0}
     - target: {fileID: 4259889453996848700, guid: 7ebb08698aa3a2f458b7c07dff2265d3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2
+      value: 2.264
       objectReference: {fileID: 0}
     - target: {fileID: 4259889453996848700, guid: 7ebb08698aa3a2f458b7c07dff2265d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1702,10 +1702,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 8
-  m_Range: 19
-  m_SpotAngle: 102
-  m_InnerSpotAngle: 21.80208
+  m_Intensity: 6
+  m_Range: 14
+  m_SpotAngle: 100
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
