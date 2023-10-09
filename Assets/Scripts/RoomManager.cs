@@ -12,15 +12,31 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public TextMeshProUGUI OccupancyRateText_ForSchool;
     public TextMeshProUGUI OccupancyRateText_ForOutdoor;
 
-    private void Start()
+    #region Unity Methods
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    #endregion
+
+    public void JoinHall()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
         if (!PhotonNetwork.IsConnectedAndReady)
         {
+            Debug.Log("Room manager Start 2");
             PhotonNetwork.ConnectUsingSettings();
         }
         else
         {
+            Debug.Log("Room manager Start 3");
             PhotonNetwork.JoinLobby();
         }
     }
@@ -36,12 +52,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
         mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_HALL;
         GoToNewRoom();
     }
-
+    
     public void OnEnterButtonClickedOutdoor()
     {
         mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_OUTDOOR;
         GoToNewRoom();
     }
+    
     public void OnEnterButtonClickedSchool()
     {
         mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_SCHOOL;
@@ -49,6 +66,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
     }
 
     #region Photon Callback Methods 
+
+    public override void OnJoinedLobby()
+    {
+        OnEnterHall();
+    }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {

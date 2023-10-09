@@ -9,19 +9,19 @@ EditorBuildSettings:
     path: Assets/Scenes/LoginScene.unity
     guid: b3049d4882a276f4dbae81c84962e9ed
   - enabled: 1
-    path: Assets/Scenes/HomeScene.unity
+    path: Assets/Scenes/Backup/HomeScene.unity
     guid: 66249e54836b48a42acadcc57da3e448
-  - enabled: 1
-    path: Assets/Scenes/World_Outdoor.unity
+  - enabled: 0
+    path: Assets/Scenes/Backup/World_Outdoor.unity
     guid: 5041d70b592f91c4c8b6824c2ef6484f
-  - enabled: 1
-    path: Assets/Scenes/World_School.unity
+  - enabled: 0
+    path: Assets/Scenes/Backup/World_School.unity
     guid: b72244336204212439510723e69fa9f9
   - enabled: 1
     path: Assets/Scenes/HallScene.unity
     guid: ecf9863b69991554ea069bcb3f37341e
-  - enabled: 1
-    path: Assets/Scenes/ThroneScene.unity
+  - enabled: 0
+    path: Assets/Scenes/Backup/ThroneScene.unity
     guid: ed4adfbdb5f9b0e408ebbb46ec3df137
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b202bd57b22147840be3d5245ac2e0c3, type: 2}

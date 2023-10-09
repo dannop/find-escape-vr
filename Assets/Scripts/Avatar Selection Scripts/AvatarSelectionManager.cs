@@ -102,8 +102,7 @@ public class AvatarSelectionManager : MonoBehaviour
         }
 
         selectableAvatarModels[avatarIndex].SetActive(true);
-        Debug.Log(avatarSelectionNumber);
-
+        
         LoadAvatarModelAt(avatarSelectionNumber);
     }
 
@@ -119,7 +118,7 @@ public class AvatarSelectionManager : MonoBehaviour
         }
 
         loadableAvatarModels[avatarIndex].SetActive(true);
-
+        
         avatarInputConverter.MainAvatarTransform = loadableAvatarModels[avatarIndex].GetComponent<AvatarHolder>().MainAvatarTransform;
 
         avatarInputConverter.AvatarBody = loadableAvatarModels[avatarIndex].GetComponent<AvatarHolder>().BodyTransform;

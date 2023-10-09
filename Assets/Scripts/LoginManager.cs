@@ -7,6 +7,7 @@ using TMPro;
 public class LoginManager : MonoBehaviourPunCallbacks
 {
     public TMP_InputField PlayerName_InputName;
+    public RoomManager RoomManager;
 
     #region Unity Methods
     // Start is called before the first frame update
@@ -47,7 +48,7 @@ public class LoginManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("Connected to Master Server with player name: " + PhotonNetwork.NickName);
-        PhotonNetwork.LoadLevel("HomeScene");
+        RoomManager.JoinHall();
     }
     #endregion
 }

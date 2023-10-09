@@ -22,6 +22,8 @@ public class UI_InteractionController : MonoBehaviour
     [SerializeField]
     GameObject UIGameObjects;
 
+    public bool onStartHideUI;
+
   
     private void OnEnable()
     {
@@ -30,21 +32,22 @@ public class UI_InteractionController : MonoBehaviour
     private void OnDisable()
     {
         inputActionReference_UISwitcher.action.performed -= ActivateUIMode;
-
     }
 
     private void Start()
     {
+        Debug.Log(onStartHideUI);
         //Deactivating UI Canvas Gameobject by default
         if (UIGameObjects != null)
         {
-            UIGameObjects.SetActive(false);
-
+            UIGameObjects.SetActive(!onStartHideUI);
         }
 
-        //Deactivating UI Controller by default
-        UIController.GetComponent<XRRayInteractor>().enabled = false;
-        UIController.GetComponent<XRInteractorLineVisual>().enabled = false;
+        if (onStartHideUI)
+        {
+            UIController.GetComponent<XRRayInteractor>().enabled = false;
+            UIController.GetComponent<XRInteractorLineVisual>().enabled = false;
+        }
     }
 
     /// <summary>
