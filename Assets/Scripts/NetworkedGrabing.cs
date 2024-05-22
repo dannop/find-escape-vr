@@ -6,10 +6,14 @@ using Photon.Realtime;
 
 public class NetworkedGrabing : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
 {
+    public bool IsBeignHeld { get => isBeignHeld; set => isBeignHeld = value; }
+
     PhotonView m_photonView;
     Rigidbody rb;
 
     bool isBeignHeld = false;
+    int oldLayer;
+
 
     private void Awake()
     {
@@ -20,12 +24,13 @@ public class NetworkedGrabing : MonoBehaviourPunCallbacks, IPunOwnershipCallback
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        oldLayer = gameObject.layer;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isBeignHeld)
+        if (IsBeignHeld)
         {
             rb.isKinematic = true;
             gameObject.layer = 11;
@@ -33,7 +38,7 @@ public class NetworkedGrabing : MonoBehaviourPunCallbacks, IPunOwnershipCallback
         else
         {
             rb.isKinematic = false;
-            gameObject.layer = 9;
+            gameObject.layer = oldLayer;
         }
     }
 
@@ -80,12 +85,12 @@ public class NetworkedGrabing : MonoBehaviourPunCallbacks, IPunOwnershipCallback
     [PunRPC]
     public void StartNetworkGrabbing()
     {
-        isBeignHeld = true;
+        IsBeignHeld = true;
     }
 
     [PunRPC]
     public void StopNetworkGrabbing()
     {
-        isBeignHeld = false;
+        IsBeignHeld = false;
     }
 }
