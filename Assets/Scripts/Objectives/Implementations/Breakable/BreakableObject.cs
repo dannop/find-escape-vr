@@ -3,7 +3,7 @@ using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class BreakableObject : MonoBehaviour
+public class BreakableObject : MonoBehaviourPunCallbacks
 {
 
     public event Action<BreakableObject> OnBreak;

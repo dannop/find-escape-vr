@@ -953,11 +953,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1684093164}
   m_SourcePrefab: {fileID: 100100000, guid: 9110b410c6ccbe7418332c0985f74155, type: 3}
---- !u!4 &53058954 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-  m_PrefabInstance: {fileID: 423827826}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &61608642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1548,6 +1543,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 871907184}
     m_Modifications:
+    - target: {fileID: -7098538004102720103, guid: 2c2b0260429d5704c87110cc40f73721, type: 3}
+      propertyPath: sceneViewId
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4106430576395928310, guid: 2c2b0260429d5704c87110cc40f73721, type: 3}
       propertyPath: m_Name
       value: Crystal
@@ -2367,6 +2366,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1414398821}
     m_Modifications:
+    - target: {fileID: 121951779420042526, guid: f8f2ec271b248a445928514d963c68ce, type: 3}
+      propertyPath: sceneViewId
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1102971708368920014, guid: f8f2ec271b248a445928514d963c68ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.820667
@@ -2747,7 +2750,6 @@ Transform:
   - {fileID: 1535917006}
   - {fileID: 1550345026}
   - {fileID: 1225380116}
-  - {fileID: 53058954}
   - {fileID: 312653874}
   - {fileID: 1544105917}
   - {fileID: 346057208}
@@ -3727,83 +3729,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 431114, guid: 7a14b0cd58179c544890b4fa4114b28a, type: 3}
   m_PrefabInstance: {fileID: 423085322}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &423827826
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 344338657}
-    m_Modifications:
-    - target: {fileID: 184882, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_Name
-      value: SM_Env_Wall_04 (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7593289
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75932884
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.7593289
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -82.194115
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 13.869379
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -14.40028
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c38218b7d59ce344e811900272cc499c, type: 3}
 --- !u!4 &429668627 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 465384, guid: c38218b7d59ce344e811900272cc499c, type: 3}
@@ -3817,6 +3742,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1414398821}
     m_Modifications:
+    - target: {fileID: -7098538004102720103, guid: 2c2b0260429d5704c87110cc40f73721, type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4106430576395928310, guid: 2c2b0260429d5704c87110cc40f73721, type: 3}
       propertyPath: m_Name
       value: Crystal
@@ -5592,6 +5521,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion Red
       objectReference: {fileID: 0}
+    - target: {fileID: 8341779983027609363, guid: 9dcc264de48177840a69d386f3889571, type: 3}
+      propertyPath: sceneViewId
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5621,6 +5554,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2049103873}
     m_Modifications:
+    - target: {fileID: -7098538004102720103, guid: 2c2b0260429d5704c87110cc40f73721, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4106430576395928310, guid: 2c2b0260429d5704c87110cc40f73721, type: 3}
       propertyPath: m_Name
       value: Crystal
@@ -6589,6 +6526,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion Green (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4607739667658424548, guid: dab592f31c308fb448cdac4e8fb3cdc0, type: 3}
+      propertyPath: sceneViewId
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5863225924784274958, guid: dab592f31c308fb448cdac4e8fb3cdc0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.186
@@ -7018,6 +6959,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 871907184}
     m_Modifications:
+    - target: {fileID: 121951779420042526, guid: f8f2ec271b248a445928514d963c68ce, type: 3}
+      propertyPath: sceneViewId
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1102971708368920014, guid: f8f2ec271b248a445928514d963c68ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.453
@@ -10923,6 +10868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1414398821}
   - component: {fileID: 1414398822}
+  - component: {fileID: 1414398823}
   m_Layer: 0
   m_Name: Test_4
   m_TagString: Untagged
@@ -10981,6 +10927,28 @@ MonoBehaviour:
   btnsToPress:
   - {fileID: 277579118}
   - {fileID: 2026235973}
+--- !u!114 &1414398823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414398820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 16
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &1423774512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14110,6 +14078,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1292436882}
     m_Modifications:
+    - target: {fileID: -7098538004102720103, guid: 2c2b0260429d5704c87110cc40f73721, type: 3}
+      propertyPath: sceneViewId
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4106430576395928310, guid: 2c2b0260429d5704c87110cc40f73721, type: 3}
       propertyPath: m_Name
       value: Crystal
@@ -14570,6 +14542,10 @@ PrefabInstance:
     - target: {fileID: 648439275366079755, guid: 54791e12f2bd1364f9290d518eaf2d50, type: 3}
       propertyPath: m_Name
       value: Potion Blue (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2270487578548566192, guid: 54791e12f2bd1364f9290d518eaf2d50, type: 3}
+      propertyPath: sceneViewId
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8155388171550688858, guid: 54791e12f2bd1364f9290d518eaf2d50, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17490,6 +17466,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1414398821}
     m_Modifications:
+    - target: {fileID: 121951779420042526, guid: f8f2ec271b248a445928514d963c68ce, type: 3}
+      propertyPath: sceneViewId
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1102971708368920014, guid: f8f2ec271b248a445928514d963c68ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.8206673
@@ -17627,6 +17607,7 @@ GameObject:
   - component: {fileID: 2049103873}
   - component: {fileID: 2049103875}
   - component: {fileID: 2049103874}
+  - component: {fileID: 2049103876}
   m_Layer: 0
   m_Name: Test_3
   m_TagString: Untagged
@@ -17706,6 +17687,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumVelocityToBreak: 1
+--- !u!114 &2049103876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049103872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 15
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &2050397854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18430,6 +18433,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 904692282}
     m_Modifications:
+    - target: {fileID: -7098538004102720103, guid: 2c2b0260429d5704c87110cc40f73721, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4106430576395928310, guid: 2c2b0260429d5704c87110cc40f73721, type: 3}
       propertyPath: m_Name
       value: Crystal
@@ -18506,6 +18513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion Green
       objectReference: {fileID: 0}
+    - target: {fileID: 4607739667658424548, guid: dab592f31c308fb448cdac4e8fb3cdc0, type: 3}
+      propertyPath: sceneViewId
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5863225924784274958, guid: dab592f31c308fb448cdac4e8fb3cdc0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.197
@@ -18578,6 +18589,10 @@ PrefabInstance:
     - target: {fileID: 648439275366079755, guid: 54791e12f2bd1364f9290d518eaf2d50, type: 3}
       propertyPath: m_Name
       value: Potion Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 2270487578548566192, guid: 54791e12f2bd1364f9290d518eaf2d50, type: 3}
+      propertyPath: sceneViewId
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8155388171550688858, guid: 54791e12f2bd1364f9290d518eaf2d50, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18691,6 +18706,10 @@ PrefabInstance:
     - target: {fileID: 7259284502283467432, guid: 9dcc264de48177840a69d386f3889571, type: 3}
       propertyPath: m_Name
       value: Potion Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341779983027609363, guid: 9dcc264de48177840a69d386f3889571, type: 3}
+      propertyPath: sceneViewId
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
