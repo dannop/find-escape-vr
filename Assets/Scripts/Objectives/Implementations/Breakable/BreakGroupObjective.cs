@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,6 +18,13 @@ public class BreakGroupObjective : Objective
 
     public UnityEvent OnBreakAll;
 
+    PhotonView myView;
+
+    private void Awake()
+    {
+        myView = PhotonView.Get(this);
+    }
+
     private void Start()
     {
         numberOfObjects = objectsToBreak.Count;
@@ -30,11 +38,22 @@ public class BreakGroupObjective : Objective
 
         if(brokenObjects == numberOfObjects)
         {
-            this.CompleteObjective();
-            OnBreakAll?.Invoke();
+            myView.RPC("DoCompleteObjective", RpcTarget.All);
         }
 
         StartCoroutine(RestoreRoutine(breakable));
+    }
+
+    [PunRPC]
+    void DoCompleteObjective()
+    {
+        if (this.isCompleted)
+        {
+            return;
+        }
+
+        this.CompleteObjective();
+        OnBreakAll?.Invoke();
     }
 
     IEnumerator RestoreRoutine(BreakableObject breakable)

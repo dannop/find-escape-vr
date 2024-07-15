@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Photon.Pun;
+using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -13,11 +14,13 @@ public class BreakableObject : MonoBehaviour
     Vector3 initialPosition;
     Quaternion initialRotation;
 
+    PhotonView myView;
     Rigidbody body;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody>();
+        myView = GetComponent<PhotonView>();
     }
 
     private void Start()
@@ -44,6 +47,24 @@ public class BreakableObject : MonoBehaviour
     [ContextMenu("Break object!")]
     public void Break()
     {
+        myView.RPC("DoBreak", RpcTarget.AllBuffered);
+    }
+
+    public void Restore()
+    {
+        myView.RPC("DoRestore", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    void DoRestore()
+    {
+        isBroken = false;
+        transform.SetPositionAndRotation(initialPosition, initialRotation);
+    }
+
+    [PunRPC]
+    void DoBreak()
+    {
         if (isBroken)
         {
             return;
@@ -52,11 +73,4 @@ public class BreakableObject : MonoBehaviour
         isBroken = true;
         OnBreak?.Invoke(this);
     }
-
-    public void Restore()
-    {
-        isBroken = false;
-        transform.SetPositionAndRotation(initialPosition, initialRotation);
-    }
-
 }
