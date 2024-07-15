@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,12 @@ public class PressBtnsToComplete : Objective
 
     bool allBtnSelected = false;
     int amountOfSelectedBtns = 0;
+    PhotonView myView;
 
+    private void Awake()
+    {
+        myView = GetComponent<PhotonView>();
+    }
 
     private void OnEnable()
     {
@@ -45,7 +51,7 @@ public class PressBtnsToComplete : Objective
         if(amountOfSelectedBtns == AmountOfBtns)
         {
             allBtnSelected = true;
-            DoAllBtnSelectedRoutine();
+            myView.RPC("DoAllBtnSelectedRoutine", RpcTarget.AllBuffered);
         }
 
     }
@@ -55,6 +61,7 @@ public class PressBtnsToComplete : Objective
         amountOfSelectedBtns--;
     }
 
+    [PunRPC]
     void DoAllBtnSelectedRoutine()
     {
 
@@ -63,6 +70,7 @@ public class PressBtnsToComplete : Objective
             OnComplete?.Invoke();
             base.CompleteObjective();
         }
+
     }
 
 }
