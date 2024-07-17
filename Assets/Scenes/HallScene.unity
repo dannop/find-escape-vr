@@ -3154,6 +3154,10 @@ PrefabInstance:
       propertyPath: OwnershipTransfer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5829342894202607501, guid: 01020db52291b2f4fb1fdb5963bf7809, type: 3}
+      propertyPath: m_UseLocal
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
