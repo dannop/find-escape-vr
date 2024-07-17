@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class NetworkedGrabing : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
+public class NetworkedGrabing : MonoBehaviour, IPunOwnershipCallbacks
 {
     public bool IsBeignHeld { get => isBeignHeld; set => isBeignHeld = value; }
 
