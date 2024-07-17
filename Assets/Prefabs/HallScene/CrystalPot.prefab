@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c46d9cdfd287e24baaa933581b68b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 0}
+  allocatedCrystal: {fileID: 0}
   positionToAllocate: {fileID: 342349960582719094}
 --- !u!65 &7236791841897273710
 BoxCollider:

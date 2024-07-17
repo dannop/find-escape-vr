@@ -16,11 +16,13 @@ public class BreakableObject : MonoBehaviourPunCallbacks
 
     PhotonView myView;
     Rigidbody body;
+    MeshRenderer meshRenderer;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody>();
         myView = GetComponent<PhotonView>();
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
     private void Start()
@@ -59,6 +61,7 @@ public class BreakableObject : MonoBehaviourPunCallbacks
     void DoRestore()
     {
         isBroken = false;
+        meshRenderer.enabled = true;
         transform.SetPositionAndRotation(initialPosition, initialRotation);
     }
 
@@ -71,6 +74,7 @@ public class BreakableObject : MonoBehaviourPunCallbacks
         }
 
         isBroken = true;
+        meshRenderer.enabled = false;
         OnBreak?.Invoke(this);
         Debug.Log("Broke object!");
     }
