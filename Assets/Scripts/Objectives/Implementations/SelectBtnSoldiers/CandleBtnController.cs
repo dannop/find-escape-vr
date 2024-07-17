@@ -36,12 +36,12 @@ public class CandleBtnController : MonoBehaviour
 
     void XRInteractable_OnSelectEnter(SelectEnterEventArgs args)
     {
-        myView.RPC("DoOnSelectEnter", RpcTarget.AllBuffered);
+        OnSelectEnter();
     }
 
     void XRInteractable_OnSelectExit(SelectExitEventArgs args)
     {
-        myView.RPC("DoOnSelectExit", RpcTarget.AllBuffered);
+        OnSelectExit();
     }
 
     [PunRPC]
@@ -56,6 +56,18 @@ public class CandleBtnController : MonoBehaviour
     {
         animator.SetBool("Selected", false);
         OnDeselected?.Invoke();
+    }
+
+    [ContextMenu("Enter select!")]
+    void OnSelectEnter()
+    {
+        myView.RPC("DoOnSelectEnter", RpcTarget.AllBuffered);
+    }
+
+    [ContextMenu("Exit select!")]
+    void OnSelectExit()
+    {
+        myView.RPC("DoOnSelectExit", RpcTarget.AllBuffered);
     }
 
     
