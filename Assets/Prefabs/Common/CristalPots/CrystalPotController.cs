@@ -1,10 +1,10 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CrystalPotController : MonoBehaviour
+public class CrystalPotController : CollectableObjective
 {
 
-    public CrystalPotManager Manager { get; set; }
+    public CrystalPotManager Manager;
+    public CrystalController allocatedCrystal;
 
     [SerializeField] Transform positionToAllocate;
 
@@ -12,33 +12,18 @@ public class CrystalPotController : MonoBehaviour
     {
         CrystalController crystal = other.GetComponent<CrystalController>();
 
-        
-    }
-
-}
-
-public class CrystalController : MonoBehaviour
-{
-
-}
-
-public class CrystalPotManager : MonoBehaviour
-{
-
-    Dictionary<CrystalController, CrystalPotController> crystalToPotDic = new Dictionary<CrystalController, CrystalPotController>();
-
-    public bool CanAllocateCristal(CrystalController cristal)
-    {
-        if (crystalToPotDic.ContainsKey(cristal))
+        if(crystal.allocationPot == null)
         {
-            return false;
+            
+            if(Manager.TryAllocateCristalOnThisPot(crystal, this))
+            {
+                allocatedCrystal = crystal;
+                crystal.allocationPot = this;
+                crystal.transform.position = positionToAllocate.transform.position;
+                crystal.transform.rotation = Quaternion.Euler(Vector3.up);
+                crystal.Allocate();
+            };
         }
-
-        return true;
-    }
-
-    public void AllocateCristalOnThisPot(CrystalController cristal, CrystalPotController pot)
-    {
 
     }
 

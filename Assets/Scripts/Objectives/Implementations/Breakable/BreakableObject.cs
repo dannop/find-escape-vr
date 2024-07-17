@@ -72,5 +72,6 @@ public class BreakableObject : MonoBehaviourPunCallbacks
 
         isBroken = true;
         OnBreak?.Invoke(this);
+        Debug.Log("Broke object!");
     }
 }
