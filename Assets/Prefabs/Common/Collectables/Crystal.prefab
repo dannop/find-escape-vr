@@ -109,8 +109,8 @@ GameObject:
   - component: {fileID: 6861805469489370821}
   - component: {fileID: 7141096361248694861}
   - component: {fileID: 2348882087529923640}
-  - component: {fileID: 6925602700508752623}
   - component: {fileID: -7098538004102720103}
+  - component: {fileID: 9204587270277771037}
   m_Layer: 14
   m_Name: Crystal
   m_TagString: Untagged
@@ -262,31 +262,7 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6925602700508752623}
-        m_TargetAssemblyTypeName: CollectableObjective, Assembly-CSharp
-        m_MethodName: CompleteObjective
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4106430576395928310}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -421,18 +397,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.42310628, y: 0.6442692, z: 0.2996989}
   m_Center: {x: -0.00000047683704, y: 0.32213628, z: 0.000010967255}
---- !u!114 &6925602700508752623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4106430576395928310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd6156502364f7d4daab97cdf87cce4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-7098538004102720103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +416,19 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 0
+  sceneViewId: 8
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &9204587270277771037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4106430576395928310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5238eae2b4f3142b73f607f1089975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allocationPot: {fileID: 0}
