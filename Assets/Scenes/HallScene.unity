@@ -18036,6 +18036,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 2270487578548566192, guid: 54791e12f2bd1364f9290d518eaf2d50, type: 3}
+      propertyPath: sceneViewId
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8155388171550688858, guid: 54791e12f2bd1364f9290d518eaf2d50, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.406
