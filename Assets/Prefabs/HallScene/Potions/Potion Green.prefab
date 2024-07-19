@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1414593909793840239, guid: 9dcc264de48177840a69d386f3889571, type: 3}
+      propertyPath: brokenPrefab
+      value: 
+      objectReference: {fileID: 8413992736505532150, guid: 4ce2573fbf9edd040b20b5fd0d271861, type: 3}
     - target: {fileID: 2120160284796674553, guid: 9dcc264de48177840a69d386f3889571, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7206478
@@ -22,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2120160284796674553, guid: 9dcc264de48177840a69d386f3889571, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2120160284796674553, guid: 9dcc264de48177840a69d386f3889571, type: 3}
       propertyPath: m_LocalRotation.x
@@ -30,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2120160284796674553, guid: 9dcc264de48177840a69d386f3889571, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2120160284796674553, guid: 9dcc264de48177840a69d386f3889571, type: 3}
       propertyPath: m_LocalRotation.z
@@ -42,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2120160284796674553, guid: 9dcc264de48177840a69d386f3889571, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2120160284796674553, guid: 9dcc264de48177840a69d386f3889571, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -54,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 4300000, guid: b074552e68e28b740982e80d6e3c66ef, type: 3}
     - target: {fileID: 7259284502283467432, guid: 9dcc264de48177840a69d386f3889571, type: 3}
       propertyPath: m_Name
-      value: Potion Green Variant
+      value: Potion Green
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

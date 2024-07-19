@@ -1,18 +1,24 @@
 ﻿using Photon.Pun;
 using System;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class BreakableObject : MonoBehaviourPunCallbacks
 {
 
+    public bool CanBreak {  get => canBreak; set => canBreak = value; }
     public event Action<BreakableObject> OnBreak;
+    public event Action<BreakableObject> OnRestore;
 
-    [SerializeField, Range(0.2f, 10f)] float minimumVelocityToBreak = 1f;
+    [SerializeField, Range(0.01f, 1f)] float minimumVelocityToBreak = 1f;
+    [SerializeField] GameObject brokenPrefab;
+    [SerializeField] bool canBreak;
+
+    GameObject instantiatedBrokenPrefab;
 
     bool isBroken = false;
     Vector3 initialPosition;
     Quaternion initialRotation;
+
 
     PhotonView myView;
     Rigidbody body;
@@ -41,7 +47,10 @@ public class BreakableObject : MonoBehaviourPunCallbacks
 
         if(body.velocity.magnitude > minimumVelocityToBreak)
         {
-            Break();
+            if (CanBreak)
+            {
+                Break();
+            }
         }
 
     }
@@ -54,15 +63,20 @@ public class BreakableObject : MonoBehaviourPunCallbacks
 
     public void Restore()
     {
-        myView.RPC("DoRestore", RpcTarget.AllBuffered);
+        //myView.RPC("DoRestore", RpcTarget.AllBuffered);
+        DoRestore();
     }
 
-    [PunRPC]
     void DoRestore()
     {
         isBroken = false;
         meshRenderer.enabled = true;
+        body.isKinematic = false;
+        body.velocity = Vector3.zero;
+        body.angularVelocity = Vector3.zero;
         transform.SetPositionAndRotation(initialPosition, initialRotation);
+        instantiatedBrokenPrefab.SetActive(false);
+        OnRestore?.Invoke(this);
     }
 
     [PunRPC]
@@ -73,8 +87,16 @@ public class BreakableObject : MonoBehaviourPunCallbacks
             return;
         }
 
+        if(instantiatedBrokenPrefab == null)
+        {
+            instantiatedBrokenPrefab = Instantiate(brokenPrefab);
+        }
+        instantiatedBrokenPrefab.SetActive(true);
+        instantiatedBrokenPrefab.transform.SetPositionAndRotation(transform.position, transform.rotation);
+
         isBroken = true;
         meshRenderer.enabled = false;
+        body.isKinematic = true;
         OnBreak?.Invoke(this);
         Debug.Log("Broke object!");
     }

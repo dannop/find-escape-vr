@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent (typeof(BreakableObject))]
 public class BreakGroupObjective : Objective
 {
 
@@ -29,6 +28,8 @@ public class BreakGroupObjective : Objective
     {
         numberOfObjects = objectsToBreak.Count;
         objectsToBreak.ForEach(obj => obj.OnBreak += Breakable_OnBreak);
+        objectsToBreak.ForEach(obj => obj.OnRestore += Breakable_OnRestore);
+
     }
 
     void Breakable_OnBreak(BreakableObject breakable)
@@ -42,6 +43,11 @@ public class BreakGroupObjective : Objective
         }
 
         StartCoroutine(RestoreRoutine(breakable));
+    }
+
+    void Breakable_OnRestore(BreakableObject breakable)
+    {
+        brokenObjects--;
     }
 
     [PunRPC]

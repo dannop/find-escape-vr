@@ -128,10 +128,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6887037133616546712, guid: dab592f31c308fb448cdac4e8fb3cdc0, type: 3}
-      propertyPath: minimumVelocityToBreak
-      value: 0.8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

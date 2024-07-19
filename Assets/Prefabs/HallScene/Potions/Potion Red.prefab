@@ -10,8 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1437368621747501305, guid: 30c071c4b99bcf949bb20f44b2bf5cc3, type: 3}
       propertyPath: m_Name
-      value: Potion Red Variant
+      value: Potion Red
       objectReference: {fileID: 0}
+    - target: {fileID: 7272471468551085630, guid: 30c071c4b99bcf949bb20f44b2bf5cc3, type: 3}
+      propertyPath: brokenPrefab
+      value: 
+      objectReference: {fileID: 2357913701877920695, guid: b6e34176baae05a49b09adaad68cde49, type: 3}
     - target: {fileID: 7647381984614130600, guid: 30c071c4b99bcf949bb20f44b2bf5cc3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
