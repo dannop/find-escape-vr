@@ -47,14 +47,14 @@ public class CandleBtnController : MonoBehaviour
     [PunRPC]
     void DoOnSelectEnter()
     {
-        animator.SetBool("Selected", true);
+        animator?.SetBool("Selected", true);
         OnSelected?.Invoke();
     }
 
     [PunRPC]
     void DoOnSelectExit()
     {
-        animator.SetBool("Selected", false);
+        animator?.SetBool("Selected", false);
         OnDeselected?.Invoke();
     }
 
