@@ -35,8 +35,7 @@ public class PaintController : MonoBehaviourPunCallbacks
 
     public void SetColor(ColorState color)
     {
-        DoSetColor(color);
-        myView.RPC("DoSetColor", RpcTarget.AllBuffered);
+        myView.RPC("DoSetColor", RpcTarget.AllBuffered, color);
     }
 
     public void SetColor(int color)
