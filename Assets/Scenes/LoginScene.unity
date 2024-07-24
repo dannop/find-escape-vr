@@ -5090,6 +5090,10 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4084793270647125469, guid: cd8e63ec67d7a614bb74748ee54ee3ca, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8906471219190976296, guid: cd8e63ec67d7a614bb74748ee54ee3ca, type: 3}
       propertyPath: m_CastShadows
       value: 0
