@@ -102,6 +102,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 1b7b10e6d9769f54e8e147b5a0494ae4, type: 2}
   - {fileID: 2100000, guid: f6730fbcccefa064a8cdbcf87766033e, type: 2}
   - {fileID: 2100000, guid: 43dd06b6e8419b64a9948f8d7e2a62bc, type: 2}
+  - {fileID: 2100000, guid: 6e0c58c3d59f372419f53869f974894b, type: 2}
   currentState: 0
 --- !u!1 &294742507182563722
 GameObject:

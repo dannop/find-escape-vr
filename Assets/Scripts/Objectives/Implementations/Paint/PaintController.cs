@@ -6,13 +6,7 @@ using UnityEngine;
 [SelectionBase]
 public class PaintController : MonoBehaviourPunCallbacks
 {
-
-    public enum ColorState
-    {
-        blue,
-        green,
-        yellow
-    }
+  
 
     public PaintManager PaintManager { get; set; }
     public ColorState CurrentState => currentState;
@@ -24,9 +18,12 @@ public class PaintController : MonoBehaviourPunCallbacks
 
     [SerializeField] ColorState currentState = ColorState.blue;
 
+    PhotonView myView;
+
     private void Awake()
     {
         myRenderer ??= GetComponent<MeshRenderer>();
+        myView = GetComponent<PhotonView>();
     }
 
     private void Start()
@@ -35,16 +32,29 @@ public class PaintController : MonoBehaviourPunCallbacks
     }
 
     [ContextMenu("Set color")]
+
     public void SetColor(ColorState color)
+    {
+        DoSetColor(color);
+        myView.RPC("DoSetColor", RpcTarget.AllBuffered);
+    }
+
+    public void SetColor(int color)
+    {
+        SetColor((ColorState) color);
+    }
+
+    public void SetNextColor()
+    {
+        SetColor(((int)currentState + 1) % 3);
+    }
+
+    [PunRPC]
+    private void DoSetColor(ColorState color)
     {
         if (!CanChangeState)
             return;
 
-        DoSetColor(color);
-    }
-
-    private void DoSetColor(ColorState color)
-    {
         switch (color)
         {
             case ColorState.blue:
@@ -58,11 +68,14 @@ public class PaintController : MonoBehaviourPunCallbacks
             case ColorState.yellow:
                 myRenderer.material = colorMaterials[2];
                 break;
+
+            case ColorState.white:
+                myRenderer.material = colorMaterials[3];
+                break;
         }
 
         currentState = color;
         OnColorChange?.Invoke();
     }
 }
-
 

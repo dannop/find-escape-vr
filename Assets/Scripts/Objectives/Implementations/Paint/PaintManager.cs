@@ -1,9 +1,8 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static PaintController;
+using UnityEngine.Events;
 
 public class PaintManager : MonoBehaviourPunCallbacks
 {
@@ -12,6 +11,11 @@ public class PaintManager : MonoBehaviourPunCallbacks
     [SerializeField] List<PaintController> OutsidePaints = new List<PaintController>();
 
     [SerializeField] GameObject objectToActive;
+
+    [SerializeField] UnityEvent onFinishPuzzle;
+
+    bool isComplete = false;
+    PhotonView myView;
 
     private void Awake()
     {
@@ -24,6 +28,8 @@ public class PaintManager : MonoBehaviourPunCallbacks
         {
             paints.PaintManager = this;
         }
+
+        myView = GetComponent<PhotonView>();
     }
 
     public override void OnEnable()
@@ -57,17 +63,27 @@ public class PaintManager : MonoBehaviourPunCallbacks
         DoRandomizeOutsidePaintings();
     }
 
+    public void SetOutsidePaintingsWhite()
+    {
+        DoSetOutsidePaintingsWhite();
+    }
+
     void Paint_OnColorChange()
     {
         if (ArePaintColorsMatching())
         {
-            DoCompletedObjectiveRoutine();
+            myView.RPC("DoCompletedObjectiveRoutine", RpcTarget.AllBuffered);
         }
+    }
+
+    void DoSetOutsidePaintingsWhite()
+    {
+        OutsidePaints.ForEach(paint => paint.SetColor(ColorState.white));
     }
 
     void DoRandomizeOutsidePaintings()
     {
-        var usedColors = new HashSet<PaintController.ColorState>();
+        var usedColors = new HashSet<ColorState>();
 
         int i = 0;
         while(usedColors.Count < 3)
@@ -87,9 +103,14 @@ public class PaintManager : MonoBehaviourPunCallbacks
         }
     }
 
+    [PunRPC]
     void DoCompletedObjectiveRoutine()
     {
 
+        if (isComplete)
+            return;
+
+        isComplete = true;
         InsidePaints.ForEach(paint => paint.CanChangeState = false);
         OutsidePaints.ForEach (paint => paint.CanChangeState = false);
         objectToActive.SetActive(true);
