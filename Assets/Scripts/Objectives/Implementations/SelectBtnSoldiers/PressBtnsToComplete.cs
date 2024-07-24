@@ -29,8 +29,8 @@ public class PressBtnsToComplete : Objective
     {
         foreach (var item in btnsToPress)
         {
-            item.OnSelected += Btn_OnSelectStart;
-            item.OnDeselected += Btn_OnSelectExit;
+            item.OnSelected.AddListener(Btn_OnSelectStart);
+            item.OnDeselected.AddListener(Btn_OnSelectExit);
         }
     }
 
@@ -38,8 +38,8 @@ public class PressBtnsToComplete : Objective
     {
         foreach (var item in btnsToPress)
         {
-            item.OnSelected -= Btn_OnSelectStart;
-            item.OnDeselected -= Btn_OnSelectExit;
+            item.OnSelected.AddListener(Btn_OnSelectStart);
+            item.OnDeselected.AddListener(Btn_OnSelectExit);
         }
     }
 

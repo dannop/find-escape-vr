@@ -1,14 +1,15 @@
 using Photon.Pun;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class CandleBtnController : MonoBehaviour
 {
 
     public bool IsSelected => xrInteractable.isSelected;
-    public Action OnSelected;
-    public Action OnDeselected;
+    public UnityEvent OnSelected;
+    public UnityEvent OnDeselected;
     public XRSimpleInteractable Interactable => xrInteractable;
 
     Animator animator;

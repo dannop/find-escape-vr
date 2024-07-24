@@ -13,6 +13,8 @@ public class BreakableObject : MonoBehaviourPunCallbacks
     [SerializeField] GameObject brokenPrefab;
     [SerializeField] bool canBreak;
 
+    [SerializeField] AudioClip brokenSound;
+
     GameObject instantiatedBrokenPrefab;
 
     bool isBroken = false;
@@ -93,6 +95,11 @@ public class BreakableObject : MonoBehaviourPunCallbacks
         }
         instantiatedBrokenPrefab.SetActive(true);
         instantiatedBrokenPrefab.transform.SetPositionAndRotation(transform.position, transform.rotation);
+
+        if(brokenSound != null)
+        {
+            AudioManager.Instance.PlaySound(brokenSound);
+        }
 
         isBroken = true;
         meshRenderer.enabled = false;

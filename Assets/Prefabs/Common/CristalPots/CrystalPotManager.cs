@@ -6,10 +6,13 @@ public class CrystalPotManager : MonoBehaviour
 {
 
     [SerializeField] int amountOfCrystalsToOpenDoor = 4;
+    [SerializeField] DoorController doorController;
 
     public Action OnCrystalThreasholdReached;
     Dictionary<CrystalController, CrystalPotController> crystalToPotDic = new Dictionary<CrystalController, CrystalPotController>();
     int amountOfAlocatedCrystals = 0;
+
+
 
     public bool CanAllocateCristal(CrystalController cristal)
     {
@@ -34,6 +37,7 @@ public class CrystalPotManager : MonoBehaviour
             if(amountOfAlocatedCrystals >= amountOfCrystalsToOpenDoor)
             {
                 Debug.Log("TODO - OpenDoor");
+                doorController.CanEndGame = true;
                 OnCrystalThreasholdReached?.Invoke();
             }
 
