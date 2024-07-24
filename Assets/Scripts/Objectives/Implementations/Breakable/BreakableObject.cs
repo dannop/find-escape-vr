@@ -98,7 +98,7 @@ public class BreakableObject : MonoBehaviourPunCallbacks
 
         if(brokenSound != null)
         {
-            AudioManager.Instance.PlaySound(brokenSound);
+            AudioManager.Instance.PlaySound(brokenSound, true);
         }
 
         isBroken = true;

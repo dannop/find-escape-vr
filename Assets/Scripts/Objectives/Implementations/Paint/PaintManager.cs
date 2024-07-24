@@ -38,7 +38,7 @@ public class PaintManager : MonoBehaviourPunCallbacks
 
         foreach (var paints in InsidePaints)
         {
-            paints.OnColorChange += Paint_OnColorChange;
+            paints.OnColorChange.AddListener(Paint_OnColorChange);
         }
     }
 
@@ -48,7 +48,7 @@ public class PaintManager : MonoBehaviourPunCallbacks
 
         foreach (var paints in InsidePaints)
         {
-            paints.OnColorChange -= Paint_OnColorChange;
+            paints.OnColorChange.RemoveListener(Paint_OnColorChange);
         }
     }
 

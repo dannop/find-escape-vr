@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [SelectionBase]
 public class PaintController : MonoBehaviourPunCallbacks
@@ -11,12 +12,13 @@ public class PaintController : MonoBehaviourPunCallbacks
     public PaintManager PaintManager { get; set; }
     public ColorState CurrentState => currentState;
     public bool CanChangeState { get; set; } = true;
-    public event Action OnColorChange;
+    public UnityEvent OnColorChange;
 
     [SerializeField] MeshRenderer myRenderer;
     [SerializeField] List<Material> colorMaterials;
 
     [SerializeField] ColorState currentState = ColorState.blue;
+
 
     PhotonView myView;
 

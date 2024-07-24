@@ -19,13 +19,22 @@ public class AudioManager : MonoBehaviour
             return instance;
         }
     }
+
     private static AudioManager instance;
 
-    public AudioSource PlaySound(AudioClip clip)
+    public float DefaultVolume = 0.3f;
+
+    public AudioSource PlaySound(AudioClip clip, bool randomizePitch = false)
     {
         var source = InstantiateSource();
         source.clip = clip;
         source.Play();
+        source.volume = DefaultVolume;
+        
+        if(randomizePitch)
+        {
+            source.pitch = Random.Range(0.9f, 1.3f);
+        }
         StartCoroutine(SourceLifetimeRoutine(source));
        
         return source;

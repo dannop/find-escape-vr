@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class CrystalController : MonoBehaviour
 {
 
     public CrystalPotController allocationPot;
+    public UnityEvent OnAllocatedOnPot;
 
     public void Allocate()
     {
@@ -13,6 +15,7 @@ public class CrystalController : MonoBehaviour
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<NetworkedGrabing>());
         collider.enabled = false;
+        OnAllocatedOnPot.Invoke();
     }
 
 }
