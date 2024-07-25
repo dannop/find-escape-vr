@@ -398,7 +398,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369066430351821196}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1507,7 +1507,7 @@ MonoBehaviour:
   BaseController: {fileID: 369066431710337723}
   inputActionReference_UISwitcher: {fileID: -8806904485457960490, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   UIGameObjects: {fileID: 0}
-  onStartHideUI: 0
+  onStartHideUI: 1
 --- !u!1 &369066431307792474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,8 +1538,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 369066431495827655}
   - {fileID: 369066430927099222}
+  - {fileID: 369066431495827655}
   m_Father: {fileID: 369066430960444037}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &369066431307792484
@@ -1554,6 +1554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6151c4befb64b8746b0057f241b1e5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleportEnable: 0
   m_BaseControllerGameObject: {fileID: 369066430927099223}
   m_TeleportControllerGameObject: {fileID: 369066431495827652}
   m_TeleportModeActivate: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f, type: 3}
@@ -1996,7 +1997,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369066431495827652}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
