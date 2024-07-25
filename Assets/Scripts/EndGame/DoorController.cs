@@ -10,33 +10,53 @@ public class DoorController : MonoBehaviour
         set
         {
             canEndGame = value;
-            onEndGameAllowed.Invoke();
+            if(value == true)
+            {
+                onEndGameAllowed.Invoke();
+            }
         }
     }
-    [SerializeField] int playersNeededOnDoor = 2;
+
+
+    [SerializeField] float distanceToDoor = 2f;
 
     [SerializeField] UnityEvent onEndGame;
     [SerializeField] UnityEvent onEndGameAllowed;
 
-    int amountOfPlayersInside = 0;
     bool canEndGame = false;
+    bool hasEndedGame = false;
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
 
-        Debug.Log(other.gameObject + "entered the trigger");
-
-        amountOfPlayersInside++;
-        if (amountOfPlayersInside >= playersNeededOnDoor && CanEndGame)
+        if (!hasEndedGame && AllPlayersInRange())
         {
-            onEndGame.Invoke();
+            hasEndedGame = true;
+            onEndGame?.Invoke();
         }
 
+        
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnDrawGizmos()
     {
-        amountOfPlayersInside--;
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, distanceToDoor);
+    }
+
+    private bool AllPlayersInRange()
+    {
+
+        var players = FindObjectsOfType<PlayerNetworkSetup>();
+        foreach (var player in players)
+        {
+            if (!(Vector3.Distance(transform.position, player.transform.position) < distanceToDoor))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }
