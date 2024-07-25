@@ -113,7 +113,6 @@ GameObject:
   - component: {fileID: 9204587270277771037}
   - component: {fileID: 1072883497710758859}
   - component: {fileID: 4320337315486692713}
-  - component: {fileID: 1894499354182008832}
   m_Layer: 14
   m_Name: Crystal
   m_TagString: Untagged
@@ -509,21 +508,3 @@ MonoBehaviour:
   useDefaultVolume: 1
   volume: 1
   clip: {fileID: 8300000, guid: 30007e7e8753ac346acef0ea806fd41a, type: 3}
---- !u!114 &1894499354182008832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4106430576395928310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0410c197e9f974546993f2025a002ea3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playOnWake: 1
-  randomizePitch: 1
-  loop: 1
-  useDefaultVolume: 0
-  volume: 0.1
-  clip: {fileID: 8300000, guid: e1108a539c3ebd34190cabe2bb3824e0, type: 3}
