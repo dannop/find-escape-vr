@@ -463,6 +463,7 @@ PrefabInstance:
     - {fileID: 8175188169083510760, guid: 30c071c4b99bcf949bb20f44b2bf5cc3, type: 3}
     - {fileID: 6341334380532482373, guid: 30c071c4b99bcf949bb20f44b2bf5cc3, type: 3}
     - {fileID: 540710237897093791, guid: 30c071c4b99bcf949bb20f44b2bf5cc3, type: 3}
+    - {fileID: 2130488954243883703, guid: 30c071c4b99bcf949bb20f44b2bf5cc3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5117,7 +5118,9 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4201109495798884847, guid: cd8e63ec67d7a614bb74748ee54ee3ca, type: 3}
+    - {fileID: 4084793270647125469, guid: cd8e63ec67d7a614bb74748ee54ee3ca, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

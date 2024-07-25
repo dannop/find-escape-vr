@@ -10,9 +10,8 @@ public class CrystalPotController : CollectableObjective
 
     private void OnTriggerEnter(Collider other)
     {
-        CrystalController crystal = other.GetComponent<CrystalController>();
 
-        if(crystal.allocationPot == null)
+        if(other.TryGetComponent(out CrystalController crystal) && crystal.allocationPot == null)
         {
             
             if(Manager.TryAllocateCristalOnThisPot(crystal, this))

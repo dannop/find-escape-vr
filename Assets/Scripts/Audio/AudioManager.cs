@@ -22,14 +22,13 @@ public class AudioManager : MonoBehaviour
 
     private static AudioManager instance;
 
-    public float DefaultVolume = 0.3f;
 
-    public AudioSource PlaySound(AudioClip clip, bool randomizePitch = false)
+    public AudioSource PlaySound(AudioClip clip, float volume = 0.3f, bool randomizePitch = false)
     {
         var source = InstantiateSource();
         source.clip = clip;
         source.Play();
-        source.volume = DefaultVolume;
+        source.volume = volume;
         
         if(randomizePitch)
         {
@@ -49,8 +48,9 @@ public class AudioManager : MonoBehaviour
 
     IEnumerator SourceLifetimeRoutine(AudioSource source)
     {
-        yield return new WaitForSeconds(source.clip.length);
+        yield return new WaitUntil(() => !source.isPlaying);
         Destroy(source.gameObject);
+        
     }
 
 }
