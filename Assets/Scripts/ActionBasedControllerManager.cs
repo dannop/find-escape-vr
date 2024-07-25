@@ -16,6 +16,8 @@ public class ActionBasedControllerManager : MonoBehaviour
 {
     public const int kControllerManagerUpdateOrder = 10;
 
+    public bool teleportEnable = true;
+
     public enum StateId
     {
         None,
@@ -407,16 +409,19 @@ public class ActionBasedControllerManager : MonoBehaviour
     /// <param name="enable"> Set it true to enable the teleport controller, false to disable it. </param>
     void SetTeleportController(bool enable)
     {
-        FindTeleportControllerComponents();
+        if (teleportEnable)
+        {
+            FindTeleportControllerComponents();
 
-        if (m_TeleportLineVisual != null) 
-            m_TeleportLineVisual.enabled = enable;
-        
-        if (m_TeleportController != null)
-            m_TeleportController.enableInputActions = enable;
-        
-        if (m_TeleportInteractor != null)
-            m_TeleportInteractor.enabled = enable;
+            if (m_TeleportLineVisual != null)
+                m_TeleportLineVisual.enabled = enable;
+
+            if (m_TeleportController != null)
+                m_TeleportController.enableInputActions = enable;
+
+            if (m_TeleportInteractor != null)
+                m_TeleportInteractor.enabled = enable;
+        }
     }
 
     void OnEnterSelectState(StateId previousStateId)
