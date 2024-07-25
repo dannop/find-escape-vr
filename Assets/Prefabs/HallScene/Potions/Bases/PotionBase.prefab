@@ -327,6 +327,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minimumVelocityToBreak: 0.175
   brokenPrefab: {fileID: 0}
+  canBreak: 0
+  brokenSound: {fileID: 8300000, guid: a98cbd401bd984a43b6e8edb200df6ff, type: 3}
 --- !u!114 &328572956018269506
 MonoBehaviour:
   m_ObjectHideFlags: 0
