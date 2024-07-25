@@ -18641,6 +18641,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1893866554}
+    - targetCorrespondingSourceObject: {fileID: 190534, guid: 21428d83ab7bdf84a9b8062357066ae9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1893866555}
   m_SourcePrefab: {fileID: 100100000, guid: 21428d83ab7bdf84a9b8062357066ae9, type: 3}
 --- !u!4 &1893866550 stripped
 Transform:
@@ -18714,6 +18718,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1893866555}
+        m_TargetAssemblyTypeName: MovementKiller, Assembly-CSharp
+        m_MethodName: KillMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onEndGameAllowed:
     m_PersistentCalls:
       m_Calls:
@@ -18743,6 +18759,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playOnWake: 0
   clip: {fileID: 8300000, guid: b32184ed84f421e4fb49608b94adb246, type: 3}
+--- !u!114 &1893866555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893866551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6d6a1530488f84d8df374af0bee847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1914737499
 GameObject:
   m_ObjectHideFlags: 0
@@ -21683,6 +21711,11 @@ PrefabInstance:
         type: 3}
       propertyPath: sceneViewId
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607739667658424548, guid: dab592f31c308fb448cdac4e8fb3cdc0,
+        type: 3}
+      propertyPath: Synchronization
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5863225924784274958, guid: dab592f31c308fb448cdac4e8fb3cdc0,
         type: 3}

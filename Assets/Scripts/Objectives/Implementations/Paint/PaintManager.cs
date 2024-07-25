@@ -88,7 +88,6 @@ public class PaintManager : MonoBehaviourPunCallbacks
         int i = 0;
         while(usedColors.Count < 3)
         {
-            Debug.Log("In while: " + i);
             ColorState randomColor = (ColorState)UnityEngine.Random.Range(0, 3);
             if (!usedColors.Contains(randomColor)){
                 OutsidePaints[i].SetColor(randomColor);

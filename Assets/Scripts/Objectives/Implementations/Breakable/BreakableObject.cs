@@ -1,5 +1,6 @@
 ﻿using Photon.Pun;
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class BreakableObject : MonoBehaviourPunCallbacks
@@ -51,6 +52,7 @@ public class BreakableObject : MonoBehaviourPunCallbacks
         {
             if (CanBreak)
             {
+                Debug.Log($"Collided with{collision.gameObject.name} with velocity {body.velocity.magnitude}");
                 Break();
             }
         }
@@ -71,9 +73,8 @@ public class BreakableObject : MonoBehaviourPunCallbacks
 
     void DoRestore()
     {
-        isBroken = false;
+        StartCoroutine(DelayedKinematicRoutine());
         meshRenderer.enabled = true;
-        body.isKinematic = false;
         body.velocity = Vector3.zero;
         body.angularVelocity = Vector3.zero;
         transform.SetPositionAndRotation(initialPosition, initialRotation);
@@ -106,5 +107,12 @@ public class BreakableObject : MonoBehaviourPunCallbacks
         body.isKinematic = true;
         OnBreak?.Invoke(this);
         Debug.Log("Broke object!");
+    }
+
+    IEnumerator DelayedKinematicRoutine()
+    {
+        yield return new WaitForSeconds(1);
+        body.isKinematic = false;
+        isBroken = false;
     }
 }

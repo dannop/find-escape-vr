@@ -9,27 +9,15 @@ public class CrystalPotManager : MonoBehaviour
     [SerializeField] DoorController doorController;
 
     public Action OnCrystalThreasholdReached;
-    Dictionary<CrystalController, CrystalPotController> crystalToPotDic = new Dictionary<CrystalController, CrystalPotController>();
     int amountOfAlocatedCrystals = 0;
 
 
 
-    public bool CanAllocateCristal(CrystalController cristal)
-    {
-        if (crystalToPotDic.ContainsKey(cristal))
-        {
-            return false;
-        }
-
-        return true;
-    }
-
     public bool TryAllocateCristalOnThisPot(CrystalController cristal, CrystalPotController pot)
     {
 
-        if(!crystalToPotDic.ContainsKey(cristal))
+        if((pot.allocatedCrystal == null) && (cristal.allocationPot == null))
         {
-            crystalToPotDic[cristal] = pot;
             pot.allocatedCrystal = cristal;
             cristal.allocationPot = pot;
 

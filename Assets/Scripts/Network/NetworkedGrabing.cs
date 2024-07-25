@@ -16,6 +16,7 @@ public class NetworkedGrabing : MonoBehaviour, IPunOwnershipCallbacks
     private void Awake()
     {
         m_photonView = GetComponent<PhotonView>();
+        PhotonNetwork.AddCallbackTarget(this);
     }
 
     // Start is called before the first frame update
@@ -42,6 +43,7 @@ public class NetworkedGrabing : MonoBehaviour, IPunOwnershipCallbacks
 
     private void TransferOwnership()
     {
+        Debug.Log("Requesting ownership: ...");
         m_photonView.RequestOwnership();
     }
 
@@ -63,6 +65,9 @@ public class NetworkedGrabing : MonoBehaviour, IPunOwnershipCallbacks
 
     public void OnOwnershipRequest(PhotonView targetView, Player requestingPlayer)
     {
+
+        Debug.Log("Ownership requested on: " + targetView.gameObject.name + "by: " + requestingPlayer.NickName);
+
         if (targetView != m_photonView)
         {
             return;

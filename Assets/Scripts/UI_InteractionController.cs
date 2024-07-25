@@ -36,7 +36,6 @@ public class UI_InteractionController : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(onStartHideUI);
         //Deactivating UI Canvas Gameobject by default
         if (UIGameObjects != null)
         {

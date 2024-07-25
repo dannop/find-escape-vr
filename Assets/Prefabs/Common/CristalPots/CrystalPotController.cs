@@ -17,8 +17,6 @@ public class CrystalPotController : CollectableObjective
             
             if(Manager.TryAllocateCristalOnThisPot(crystal, this))
             {
-                allocatedCrystal = crystal;
-                crystal.allocationPot = this;
                 crystal.transform.position = positionToAllocate.transform.position;
                 crystal.transform.rotation = Quaternion.Euler(Vector3.up);
                 crystal.Allocate();

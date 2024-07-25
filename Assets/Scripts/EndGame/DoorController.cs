@@ -13,6 +13,7 @@ public class DoorController : MonoBehaviour
             onEndGameAllowed.Invoke();
         }
     }
+    [SerializeField] int playersNeededOnDoor = 2;
 
     [SerializeField] UnityEvent onEndGame;
     [SerializeField] UnityEvent onEndGameAllowed;
@@ -24,7 +25,7 @@ public class DoorController : MonoBehaviour
     {
 
         amountOfPlayersInside++;
-        if (amountOfPlayersInside == 2 && CanEndGame)
+        if (amountOfPlayersInside == playersNeededOnDoor && CanEndGame)
         {
             onEndGame.Invoke();
         }
