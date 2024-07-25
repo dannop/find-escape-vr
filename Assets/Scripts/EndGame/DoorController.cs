@@ -24,8 +24,10 @@ public class DoorController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
+        Debug.Log(other.gameObject + "entered the trigger");
+
         amountOfPlayersInside++;
-        if (amountOfPlayersInside == playersNeededOnDoor && CanEndGame)
+        if (amountOfPlayersInside >= playersNeededOnDoor && CanEndGame)
         {
             onEndGame.Invoke();
         }
