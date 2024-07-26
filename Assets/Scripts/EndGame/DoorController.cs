@@ -38,7 +38,7 @@ public class DoorController : MonoBehaviour
     {
         amountOfPressedBtns++;
 
-        if(amountOfPressedBtns >= 2)
+        if(!hasEndedGame && amountOfPressedBtns >= 2)
         {
             hasEndedGame = true;
             onEndGame?.Invoke();

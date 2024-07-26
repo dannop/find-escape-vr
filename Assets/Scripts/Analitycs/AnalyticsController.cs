@@ -15,4 +15,16 @@ public class AnalyticsController : MonoBehaviour
         AnalyticsService.Instance.Flush();
         Debug.Log("Enviou evento");
     }
+
+    public void RegisterTest3()
+    {
+        Dictionary<string, object> parameters = new()
+        {
+            { "message", "Teste Pocoes finalizado" }
+        };
+        AnalyticsService.Instance.CustomData("testComplete", parameters);
+        AnalyticsService.Instance.Flush();
+
+        Debug.Log("Enviou Teste pocoes");
+    }
 }
