@@ -113,6 +113,7 @@ public class PaintManager : MonoBehaviourPunCallbacks
         InsidePaints.ForEach(paint => paint.CanChangeState = false);
         OutsidePaints.ForEach (paint => paint.CanChangeState = false);
         objectToActive.SetActive(true);
+        onFinishPuzzle?.Invoke();
         Debug.Log("Completed paint objective");
 
     }

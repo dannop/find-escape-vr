@@ -26,17 +26,7 @@ public class DoorController : MonoBehaviour
     bool canEndGame = false;
     bool hasEndedGame = false;
 
-    private void Update()
-    {
-
-        if (!hasEndedGame && AllPlayersInRange())
-        {
-            hasEndedGame = true;
-            onEndGame?.Invoke();
-        }
-
-        
-    }
+    int amountOfPressedBtns = 0;
 
     private void OnDrawGizmos()
     {
@@ -44,13 +34,32 @@ public class DoorController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, distanceToDoor);
     }
 
+    public void OnBtnPressed()
+    {
+        amountOfPressedBtns++;
+
+        if(amountOfPressedBtns >= 2)
+        {
+            hasEndedGame = true;
+            onEndGame?.Invoke();
+        }
+    }
+
+    public void OnBtnUnpressed()
+    {
+        amountOfPressedBtns--;
+    }
+
     private bool AllPlayersInRange()
     {
 
         var players = FindObjectsOfType<PlayerNetworkSetup>();
+        
         foreach (var player in players)
         {
-            if (!(Vector3.Distance(transform.position, player.transform.position) < distanceToDoor))
+
+            var targetTransform = player.transform.GetChild(2);
+            if (!(Vector3.Distance(targetTransform.position, player.transform.position) < distanceToDoor))
             {
                 return false;
             }
